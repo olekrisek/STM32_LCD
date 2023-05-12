@@ -52,8 +52,8 @@ int main() {
     // Set the cursor position
     lcd.setCursor(0, 1); // Second row, first column
 
-    // Print another message
-    lcd.printLCD("LCD Library");
+    // Print another message, printf style parameters...
+    lcd.printFormatted("The answer is: %d", 42);
 
     while (1) {
         // Your main program logic here
