@@ -2,16 +2,21 @@
 
 This library provides a high-level interface for driving LCD text displays using STM32 microcontrollers. It is based on the existing C code from the LiquidCrystal library, with additional features and modifications specific to STM32 microcontrollers.
 
+This library is based on the works found in the [STM32LiquidCrystal](https://github.com/SayidHosseini/STM32LiquidCrystal) repository. We would like to acknowledge and express our gratitude to the original author for their contributions and inspiration.
+
+The code is tested on a STM32L552 controller on a NUKLEO-STM32L552 board. 
+
 ## Features
 
 - Supports multiple ports for digital lines, allowing flexible pin assignment for data and control signals.
 - Supports multiple LCD displays connected to the same microcontroller.
 - changed the "print" override, to make it possible to direct output to selected display. 
 - Both C++ class code, and a C-compatible wrapper implementation to allow calls both from C++ source and C source. 
+- a printFormatted method to use for printf style printing, accepting the same parameters as printf. 
 
 ## Usage
 
-1. Include the necessary library files (`lcd.hpp` and `lcd.cpp`, `LCD_wrapper.cpp`, `LCD_wrapper.h` ) in your STM32 project.
+1. Include the necessary library files (`lcd.hpp` and `lcd.cpp`, `LCD_wrapper.cpp`, `LCD_wrapper.h` ) in your STM32 project. The wrapper files is only neccessary for "C" projects, in addition to the lcd.cpp and lcd.hpp. for C++ projectes, it's only neccessarey with the lcd.cpp and lcd.hpp files. 
 
 2. Initialize the LCD display using the appropriate constructor, providing the GPIO port references for data and control signals.
 
@@ -19,7 +24,7 @@ This library provides a high-level interface for driving LCD text displays using
 
 4. Build and flash your STM32 project, ensuring that the LCD library is properly linked.
 
-## Example
+## Example for C++ project
 
 ```cpp
 #include "lcd.hpp"
@@ -54,3 +59,47 @@ int main() {
         // Your main program logic here
     }
 }
+```
+## Example for C project
+```c
+#include "LCD_wrapper.h"
+
+// GPIO port references - those are usually located in main.h when using STM32CubeMX. 
+#define DSP_D4_Pin GPIO_PIN_8
+#define DSP_D4_GPIO_Port GPIOC
+#define DSP_D5_Pin GPIO_PIN_9
+#define DSP_D6_Pin GPIO_PIN_10
+#define DSP_D7_Pin GPIO_PIN_11
+#define DSP_RS_Pin GPIO_PIN_3
+#define DSP_RS_GPIO_Port GPIOF
+#define DSP_EN_Pin GPIO_PIN_12
+#define DSP_EN_GPIO_Port GPIOC
+#define DSP_RW_Pin GPIO_PIN_2
+#define DSP_RW_GPIO_Port GPIOD
+
+int main() {
+    // Create an instance of the LCD class
+    LCD *lcd;
+    lcd = LCD_create(DSP_D4_GPIO_Port, DSP_RW_GPIO_Port, DSP_EN_GPIO_Port, DSP_RS_GPIO_Port);
+ 
+    // Initialize the LCD control and data pins
+    LCD_initCtrlPins(lcd, DSP_RW_Pin, DSP_EN_Pin, DSP_RS_Pin);
+    LCD_initDataPins(lcd, DSP_D4_Pin,  DSP_D5_Pin, DSP_D6_Pin, DSP_D7_Pin);
+
+    // Set up the LCD display parameters
+    LCD_Begin(lcd, 20, 4); // 20 columns and 4 lines. 
+     
+    // Print a message on the LCD
+    LCD_print( lcd, "Hello World !");
+     
+    // Set the cursor position
+    LCD_setCursor( lcd, 0, 2);
+     
+    // Print another message as formatted text
+    LCD_printFormatted(lcd, "The answer is: %d", 42);
+
+    while (1) {
+        // Your main program logic here
+    }
+}
+```
