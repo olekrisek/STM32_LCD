@@ -103,3 +103,10 @@ int main() {
     }
 }
 ```
+## Notes 
+
+The C++ constructor or LCD_Create method accepts four port parameters: data port, RW port, EN port, and RS port. These ports can either be the same for all or different from each other. This change was made to enhance flexibility, considering that the microcontroller has numerous peripherals reserved for specific ports. By allowing different ports, it becomes easier to connect the display without disabling other essential peripherals. Finding seven IO pins on a single port without disabling other peripherals can be challenging. Moreover, when utilizing a NUKLEO board, it is preferable to have the LCD pins positioned close to each other on the board connectors, facilitating the connection process.
+
+Furthermore, this library enables the connection of multiple displays to the same microcontroller. You can create and initialize two LCD objects, configuring each of them separately. Assign the names "lcd1" and "lcd2" to the objects, enabling independent printing on both displays.
+
+![IMG_2835](https://github.com/olekrisek/STM32_LCD/assets/3278226/85caf874-7ccc-4aae-9915-3bd373223f9e)
