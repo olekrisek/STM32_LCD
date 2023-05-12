@@ -53,14 +53,6 @@
 #define LCD_5x10DOTS 0x04
 #define LCD_5x8DOTS 0x00
 
-
-// low-level functions
-void send(uint8_t, GPIO_PinState);
-void write4bits(uint8_t);
-void write8bits(uint8_t);
-void pulseEnable(void);
-
-
 #include <iostream>
 #include <string>
 
