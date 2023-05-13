@@ -34,7 +34,10 @@
 
 #ifndef LCD_H
 #define LCD_H
-
+/* Controller spesific include statements.
+ * For a different controller, change this to the appropriate include
+ * for the actual controller. Look at the main.h created from STM32CubeMX.
+ */
 #include "stm32l5xx_hal.h"
 #include "stm32l5xx_ll_ucpd.h"
 #include "stm32l5xx_ll_bus.h"
@@ -47,6 +50,11 @@
 #include "stm32l5xx_ll_dma.h"
 
 #include "stm32l5xx_ll_exti.h"
+
+/* end spesific controller include stm
+ *
+ */
+
 #include <iostream>
 #include <cstdarg>
 
