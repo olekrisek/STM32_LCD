@@ -23,6 +23,7 @@ The code is tested on a STM32L552 controller on a NUKLEO-STM32L552 board.
 3. Use the available methods to interact with the LCD display, such as writing text, setting the cursor position, creating custom characters, and controlling display settings.
 
 4. Build and flash your STM32 project, ensuring that the LCD library is properly linked.
+5. Detailed doc is found in the project's Doc/html folder. Gen from Doxygen. 
 
 ## Example for C++ project
 
