@@ -77,6 +77,22 @@
     }
 
     /**
+     * @brief Outputs a character to the LCD display.
+     *
+     * This function writes a character to the LCD display.
+     * If the character is 0, the function returns without performing any action.
+     * Otherwise, it writes the character to the display
+     *
+     * @param ch The character to be written to the display.
+     *
+     * @return None
+     */
+    void LCD::putch(uint8_t ch) {
+        if (ch == 0) return;
+        write(ch);
+    }
+
+    /**
      * @brief Print formatted string to LCD display.
      *
      * This method allows printing a formatted string to the LCD display using a

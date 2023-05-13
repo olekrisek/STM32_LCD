@@ -1,0 +1,359 @@
+\hypertarget{class_l_c_d}{}\doxysection{LCD Class Reference}
+\label{class_l_c_d}\index{LCD@{LCD}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l_c_d_a71d049906fe4c683de944e7691a18913}{LCD}} (GPIO\+\_\+\+Type\+Def $\ast$portdata, GPIO\+\_\+\+Type\+Def $\ast$portctrl\+RW, GPIO\+\_\+\+Type\+Def $\ast$portctrl\+EN, GPIO\+\_\+\+Type\+Def $\ast$portctrl\+RS)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_l_c_d}{LCD}} constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d_a5a69772cb66723fcf2700618226f0117}{init\+Data\+Pins}} (uint16\+\_\+t val4, uint16\+\_\+t val5, uint16\+\_\+t val6, uint16\+\_\+t val7)
+\begin{DoxyCompactList}\small\item\em Initializes the data pins of the \mbox{\hyperlink{class_l_c_d}{LCD}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d_ae0354650ab5a8fd20ded471dbb91a595}{init\+Ctrl\+Pins}} (uint16\+\_\+t ctrl\+RW, uint16\+\_\+t ctrl\+EN, uint16\+\_\+t ctrl\+RS)
+\begin{DoxyCompactList}\small\item\em Initializes the control pins of the \mbox{\hyperlink{class_l_c_d}{LCD}}. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_l_c_d_af23af138b827bde2a84cbb6ccb3d182f}{print\+LCD}} (const std\+::string \&message=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Prints the specified message on the \mbox{\hyperlink{class_l_c_d}{LCD}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_l_c_d_a0a21a3e48bbf88766ae85c5f90702d97}{print\+Formatted}} (const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em Print formatted string to \mbox{\hyperlink{class_l_c_d}{LCD}} display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d_ad7734dbe71f0ac78e556dfbf4967fe15}{putch}} (uint8\+\_\+t ch)
+\begin{DoxyCompactList}\small\item\em Outputs a character to the \mbox{\hyperlink{class_l_c_d}{LCD}} display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d_aebf99637cb9616d60b242dc8aaf0850a}{set\+Cursor}} (uint8\+\_\+t x=0, uint8\+\_\+t y=0)
+\begin{DoxyCompactList}\small\item\em Sets the cursor position on the \mbox{\hyperlink{class_l_c_d}{LCD}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d_a4cb65a0bd0e7a18b3ba18ea70e200346}{Begin}} (int cols, int rows)
+\begin{DoxyCompactList}\small\item\em Begins the \mbox{\hyperlink{class_l_c_d}{LCD}} initialization with the specified number of columns and rows. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d_a91cba8f93c692abcddf8bc3de58d2d3a}{create\+Char}} (uint8\+\_\+t location, uint8\+\_\+t charmap\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Creates a custom character and assigns it to the specified CGRAM location. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d_aeff37c905e5f6623ef7743103347c92d}{no\+Autoscroll}} (void)
+\begin{DoxyCompactList}\small\item\em Disables autoscrolling of text, causing it to be left-\/justified from the cursor position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d_ac6a18bccf905cf2c71b0ebe86cf2787c}{autoscroll}} (void)
+\begin{DoxyCompactList}\small\item\em Enables autoscrolling of text, causing it to be right-\/justified from the cursor position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d_a88017e4902a4d07084e57a62e5d6401c}{left\+To\+Right}} (void)
+\begin{DoxyCompactList}\small\item\em Sets the text flow direction to left-\/to-\/right. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d_ada7852125c06d02b515c0a4bbb931c38}{right\+To\+Left}} (void)
+\begin{DoxyCompactList}\small\item\em Sets the text flow direction to right-\/to-\/left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d_aa905559d25aba4b87a4e8e614729b8ec}{scroll\+Display\+Left}} (void)
+\begin{DoxyCompactList}\small\item\em Scrolls the display to the left without changing the RAM contents. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d_a4aaf9a8b204548fbf45d2436254e7a0c}{scroll\+Display\+Right}} (void)
+\begin{DoxyCompactList}\small\item\em Scrolls the display to the right without changing the RAM contents. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_l_c_d_a02a1754e67064533d865fa512df28c83}\label{class_l_c_d_a02a1754e67064533d865fa512df28c83}} 
+void {\bfseries no\+Display} (void)
+\begin{DoxyCompactList}\small\item\em Turns off the display. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_l_c_d_aaeb946d140898a5611a5688866600545}\label{class_l_c_d_aaeb946d140898a5611a5688866600545}} 
+void {\bfseries display} (void)
+\begin{DoxyCompactList}\small\item\em Turns on the display. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_l_c_d_ac14ca68f3abe49812d299e9a10e42c64}\label{class_l_c_d_ac14ca68f3abe49812d299e9a10e42c64}} 
+void {\bfseries no\+Cursor} (void)
+\begin{DoxyCompactList}\small\item\em Turns off the underline cursor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_l_c_d_a0cee3ae98d3ea09a57ce225508cc645a}\label{class_l_c_d_a0cee3ae98d3ea09a57ce225508cc645a}} 
+void {\bfseries cursor} (void)
+\begin{DoxyCompactList}\small\item\em Turns on the underline cursor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_l_c_d_aca6cd9e401283d5fa4917d53260b3ba9}\label{class_l_c_d_aca6cd9e401283d5fa4917d53260b3ba9}} 
+void {\bfseries clear} (void)
+\begin{DoxyCompactList}\small\item\em Clears the display and sets the cursor position to zero. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_l_c_d_add2d8956c36ba45c36f234e442103f3c}\label{class_l_c_d_add2d8956c36ba45c36f234e442103f3c}} 
+void {\bfseries home} (void)
+\begin{DoxyCompactList}\small\item\em Sets the cursor position to zero. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_l_c_d_a71d049906fe4c683de944e7691a18913}\label{class_l_c_d_a71d049906fe4c683de944e7691a18913}} 
+\index{LCD@{LCD}!LCD@{LCD}}
+\index{LCD@{LCD}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{LCD()}{LCD()}}
+{\footnotesize\ttfamily LCD\+::\+LCD (\begin{DoxyParamCaption}\item[{GPIO\+\_\+\+Type\+Def $\ast$}]{portdata,  }\item[{GPIO\+\_\+\+Type\+Def $\ast$}]{portctrl\+RW,  }\item[{GPIO\+\_\+\+Type\+Def $\ast$}]{portctrl\+EN,  }\item[{GPIO\+\_\+\+Type\+Def $\ast$}]{portctrl\+RS }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_l_c_d}{LCD}} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em portdata} & Pointer to the GPIO port for data communication. \\
+\hline
+{\em portctrl\+RW} & Pointer to the GPIO port for the RW control line. \\
+\hline
+{\em portctrl\+EN} & Pointer to the GPIO port for the EN control line. \\
+\hline
+{\em portctrl\+RS} & Pointer to the GPIO port for the RS control line. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_l_c_d_ac6a18bccf905cf2c71b0ebe86cf2787c}\label{class_l_c_d_ac6a18bccf905cf2c71b0ebe86cf2787c}} 
+\index{LCD@{LCD}!autoscroll@{autoscroll}}
+\index{autoscroll@{autoscroll}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{autoscroll()}{autoscroll()}}
+{\footnotesize\ttfamily void LCD\+::autoscroll (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Enables autoscrolling of text, causing it to be right-\/justified from the cursor position. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_l_c_d_a4cb65a0bd0e7a18b3ba18ea70e200346}\label{class_l_c_d_a4cb65a0bd0e7a18b3ba18ea70e200346}} 
+\index{LCD@{LCD}!Begin@{Begin}}
+\index{Begin@{Begin}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{Begin()}{Begin()}}
+{\footnotesize\ttfamily void LCD\+::\+Begin (\begin{DoxyParamCaption}\item[{int}]{cols,  }\item[{int}]{rows }\end{DoxyParamCaption})}
+
+
+
+Begins the \mbox{\hyperlink{class_l_c_d}{LCD}} initialization with the specified number of columns and rows. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cols} & The number of columns on the \mbox{\hyperlink{class_l_c_d}{LCD}}. \\
+\hline
+{\em rows} & The number of rows on the \mbox{\hyperlink{class_l_c_d}{LCD}}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_l_c_d_a91cba8f93c692abcddf8bc3de58d2d3a}\label{class_l_c_d_a91cba8f93c692abcddf8bc3de58d2d3a}} 
+\index{LCD@{LCD}!createChar@{createChar}}
+\index{createChar@{createChar}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{createChar()}{createChar()}}
+{\footnotesize\ttfamily void LCD\+::create\+Char (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{location,  }\item[{uint8\+\_\+t}]{charmap\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Creates a custom character and assigns it to the specified CGRAM location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & The location in CGRAM where the custom character will be stored (0-\/7). \\
+\hline
+{\em charmap} & An array representing the character pattern (8 bytes) to be assigned to the location. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_l_c_d_ae0354650ab5a8fd20ded471dbb91a595}\label{class_l_c_d_ae0354650ab5a8fd20ded471dbb91a595}} 
+\index{LCD@{LCD}!initCtrlPins@{initCtrlPins}}
+\index{initCtrlPins@{initCtrlPins}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{initCtrlPins()}{initCtrlPins()}}
+{\footnotesize\ttfamily void LCD\+::init\+Ctrl\+Pins (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{ctrl\+RW,  }\item[{uint16\+\_\+t}]{ctrl\+EN,  }\item[{uint16\+\_\+t}]{ctrl\+RS }\end{DoxyParamCaption})}
+
+
+
+Initializes the control pins of the \mbox{\hyperlink{class_l_c_d}{LCD}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctrl\+RW} & Value for the control pin RW. \\
+\hline
+{\em ctrl\+EN} & Value for the control pin EN. \\
+\hline
+{\em ctrl\+RS} & Value for the control pin RS. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_l_c_d_a5a69772cb66723fcf2700618226f0117}\label{class_l_c_d_a5a69772cb66723fcf2700618226f0117}} 
+\index{LCD@{LCD}!initDataPins@{initDataPins}}
+\index{initDataPins@{initDataPins}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{initDataPins()}{initDataPins()}}
+{\footnotesize\ttfamily void LCD\+::init\+Data\+Pins (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{val4,  }\item[{uint16\+\_\+t}]{val5,  }\item[{uint16\+\_\+t}]{val6,  }\item[{uint16\+\_\+t}]{val7 }\end{DoxyParamCaption})}
+
+
+
+Initializes the data pins of the \mbox{\hyperlink{class_l_c_d}{LCD}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val4} & Value for data pin 4. \\
+\hline
+{\em val5} & Value for data pin 5. \\
+\hline
+{\em val6} & Value for data pin 6. \\
+\hline
+{\em val7} & Value for data pin 7. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_l_c_d_a88017e4902a4d07084e57a62e5d6401c}\label{class_l_c_d_a88017e4902a4d07084e57a62e5d6401c}} 
+\index{LCD@{LCD}!leftToRight@{leftToRight}}
+\index{leftToRight@{leftToRight}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{leftToRight()}{leftToRight()}}
+{\footnotesize\ttfamily void LCD\+::left\+To\+Right (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Sets the text flow direction to left-\/to-\/right. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_l_c_d_aeff37c905e5f6623ef7743103347c92d}\label{class_l_c_d_aeff37c905e5f6623ef7743103347c92d}} 
+\index{LCD@{LCD}!noAutoscroll@{noAutoscroll}}
+\index{noAutoscroll@{noAutoscroll}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{noAutoscroll()}{noAutoscroll()}}
+{\footnotesize\ttfamily void LCD\+::no\+Autoscroll (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Disables autoscrolling of text, causing it to be left-\/justified from the cursor position. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_l_c_d_a0a21a3e48bbf88766ae85c5f90702d97}\label{class_l_c_d_a0a21a3e48bbf88766ae85c5f90702d97}} 
+\index{LCD@{LCD}!printFormatted@{printFormatted}}
+\index{printFormatted@{printFormatted}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{printFormatted()}{printFormatted()}}
+{\footnotesize\ttfamily int LCD\+::print\+Formatted (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Print formatted string to \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+This method allows printing a formatted string to the \mbox{\hyperlink{class_l_c_d}{LCD}} display using a format string and variable arguments, similar to the {\ttfamily printf} function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & Format string specifying the output format. \\
+\hline
+{\em ...} & Additional arguments to be formatted and printed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of characters printed on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_l_c_d_af23af138b827bde2a84cbb6ccb3d182f}\label{class_l_c_d_af23af138b827bde2a84cbb6ccb3d182f}} 
+\index{LCD@{LCD}!printLCD@{printLCD}}
+\index{printLCD@{printLCD}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{printLCD()}{printLCD()}}
+{\footnotesize\ttfamily size\+\_\+t LCD\+::print\+LCD (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Prints the specified message on the \mbox{\hyperlink{class_l_c_d}{LCD}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be printed on the \mbox{\hyperlink{class_l_c_d}{LCD}}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_l_c_d_ad7734dbe71f0ac78e556dfbf4967fe15}\label{class_l_c_d_ad7734dbe71f0ac78e556dfbf4967fe15}} 
+\index{LCD@{LCD}!putch@{putch}}
+\index{putch@{putch}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{putch()}{putch()}}
+{\footnotesize\ttfamily void LCD\+::putch (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ch }\end{DoxyParamCaption})}
+
+
+
+Outputs a character to the \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+This function writes a character to the \mbox{\hyperlink{class_l_c_d}{LCD}} display. If the character is 0, the function returns without performing any action. Otherwise, it writes the character to the display
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & The character to be written to the display.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_l_c_d_ada7852125c06d02b515c0a4bbb931c38}\label{class_l_c_d_ada7852125c06d02b515c0a4bbb931c38}} 
+\index{LCD@{LCD}!rightToLeft@{rightToLeft}}
+\index{rightToLeft@{rightToLeft}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{rightToLeft()}{rightToLeft()}}
+{\footnotesize\ttfamily void LCD\+::right\+To\+Left (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Sets the text flow direction to right-\/to-\/left. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_l_c_d_aa905559d25aba4b87a4e8e614729b8ec}\label{class_l_c_d_aa905559d25aba4b87a4e8e614729b8ec}} 
+\index{LCD@{LCD}!scrollDisplayLeft@{scrollDisplayLeft}}
+\index{scrollDisplayLeft@{scrollDisplayLeft}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{scrollDisplayLeft()}{scrollDisplayLeft()}}
+{\footnotesize\ttfamily void LCD\+::scroll\+Display\+Left (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Scrolls the display to the left without changing the RAM contents. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_l_c_d_a4aaf9a8b204548fbf45d2436254e7a0c}\label{class_l_c_d_a4aaf9a8b204548fbf45d2436254e7a0c}} 
+\index{LCD@{LCD}!scrollDisplayRight@{scrollDisplayRight}}
+\index{scrollDisplayRight@{scrollDisplayRight}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{scrollDisplayRight()}{scrollDisplayRight()}}
+{\footnotesize\ttfamily void LCD\+::scroll\+Display\+Right (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Scrolls the display to the right without changing the RAM contents. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{class_l_c_d_aebf99637cb9616d60b242dc8aaf0850a}\label{class_l_c_d_aebf99637cb9616d60b242dc8aaf0850a}} 
+\index{LCD@{LCD}!setCursor@{setCursor}}
+\index{setCursor@{setCursor}!LCD@{LCD}}
+\doxysubsubsection{\texorpdfstring{setCursor()}{setCursor()}}
+{\footnotesize\ttfamily void LCD\+::set\+Cursor (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x = {\ttfamily 0},  }\item[{uint8\+\_\+t}]{y = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Sets the cursor position on the \mbox{\hyperlink{class_l_c_d}{LCD}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The X-\/coordinate of the cursor position. \\
+\hline
+{\em y} & The Y-\/coordinate of the cursor position. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Inc/lcd.\+hpp\item 
+Src/lcd.\+cpp\end{DoxyCompactItemize}

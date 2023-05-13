@@ -1,0 +1,69 @@
+\hypertarget{_l_c_d__wrapper_8h_source}{}\doxysection{LCD\+\_\+wrapper.\+h}
+\label{_l_c_d__wrapper_8h_source}\index{Inc/LCD\_wrapper.h@{Inc/LCD\_wrapper.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#ifndef\ LCD\_WRAPPER\_H}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ LCD\_WRAPPER\_H}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{class_l_c_d}{LCD}}\ \mbox{\hyperlink{class_l_c_d}{LCD}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00055\ \mbox{\hyperlink{class_l_c_d}{LCD}}*\ LCD\_create(\textcolor{keywordtype}{void}*\ portdata,\ \textcolor{keywordtype}{void}*\ portctrlRW,\ \textcolor{keywordtype}{void}*\ portctrlEN,\ \textcolor{keywordtype}{void}*\ portctrlRS);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ LCD\_initCtrlPins(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd,\ uint16\_t\ ctrlRW,\ uint16\_t\ ctrlEN,\ uint16\_t\ ctrlRS);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ LCD\_initDataPins(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd,\ uint16\_t\ val4,\ uint16\_t\ val5,\ uint16\_t\ val6,\ uint16\_t\ val7);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ LCD\_print(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ message);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{int}\ LCD\_printFormatted(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format,\ ...);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ LCD\_putch(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd,\ uint8\_t\ ch)\ ;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ LCD\_setCursor(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ LCD\_Begin(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd,\ \textcolor{keywordtype}{int}\ cols,\ \textcolor{keywordtype}{int}\ rows);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00141\ \textcolor{keywordtype}{void}\ LCD\_createChar(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd,\ uint8\_t\ location,\ uint8\_t\ charmap[]);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00148\ \textcolor{keywordtype}{void}\ LCD\_noAutoscroll(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ LCD\_autoscroll(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00162\ \textcolor{keywordtype}{void}\ LCD\_leftToRight(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00169\ \textcolor{keywordtype}{void}\ LCD\_rightToLeft(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00176\ \textcolor{keywordtype}{void}\ LCD\_scrollDisplayLeft(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd);}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00183\ \textcolor{keywordtype}{void}\ LCD\_scrollDisplayRight(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00190\ \textcolor{keywordtype}{void}\ LCD\_noDisplay(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00197\ \textcolor{keywordtype}{void}\ LCD\_display(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00204\ \textcolor{keywordtype}{void}\ LCD\_noCursor(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00211\ \textcolor{keywordtype}{void}\ LCD\_cursor(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00218\ \textcolor{keywordtype}{void}\ LCD\_clear(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd);}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00225\ \textcolor{keywordtype}{void}\ LCD\_home(\mbox{\hyperlink{class_l_c_d}{LCD}}*\ lcd);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00231\ \}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LCD\_WRAPPER\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

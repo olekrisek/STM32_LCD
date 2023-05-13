@@ -1,0 +1,107 @@
+This library provides a high-\/level interface for driving \mbox{\hyperlink{class_l_c_d}{LCD}} text displays using STM32 microcontrollers. It is based on the existing C code from the Liquid\+Crystal library, with additional features and modifications specific to STM32 microcontrollers.
+
+This library is based on the works found in the \href{https://github.com/SayidHosseini/STM32LiquidCrystal}{\texttt{ STM32\+Liquid\+Crystal}} repository. We would like to acknowledge and express our gratitude to the original author for their contributions and inspiration.
+
+The code is tested on a STM32\+L552 controller on a NUKLEO-\/\+STM32\+L552 board.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{Features}\label{md__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Supports multiple ports for digital lines, allowing flexible pin assignment for data and control signals.
+\item Supports multiple \mbox{\hyperlink{class_l_c_d}{LCD}} displays connected to the same microcontroller.
+\item changed the \char`\"{}print\char`\"{} override, to make it possible to direct output to selected display.
+\item Both C++ class code, and a C-\/compatible wrapper implementation to allow calls both from C++ source and C source.
+\item a print\+Formatted method to use for printf style printing, accepting the same parameters as printf.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{Usage}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyEnumerate}
+\item Include the necessary library files ({\ttfamily \mbox{\hyperlink{lcd_8hpp_source}{lcd.\+hpp}}} and {\ttfamily lcd.\+cpp}, {\ttfamily \mbox{\hyperlink{_l_c_d__wrapper_8cpp}{LCD\+\_\+wrapper.\+cpp}}}, {\ttfamily \mbox{\hyperlink{_l_c_d__wrapper_8h_source}{LCD\+\_\+wrapper.\+h}}} ) in your STM32 project. The wrapper files is only neccessary for \char`\"{}\+C\char`\"{} projects, in addition to the lcd.\+cpp and \mbox{\hyperlink{lcd_8hpp_source}{lcd.\+hpp}}. for C++ projectes, it\textquotesingle{}s only neccessarey with the lcd.\+cpp and \mbox{\hyperlink{lcd_8hpp_source}{lcd.\+hpp}} files.
+\item Initialize the \mbox{\hyperlink{class_l_c_d}{LCD}} display using the appropriate constructor, providing the GPIO port references for data and control signals.
+\item Use the available methods to interact with the \mbox{\hyperlink{class_l_c_d}{LCD}} display, such as writing text, setting the cursor position, creating custom characters, and controlling display settings.
+\item Build and flash your STM32 project, ensuring that the \mbox{\hyperlink{class_l_c_d}{LCD}} library is properly linked.
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{Example for C++ project}\label{md__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}lcd.hpp"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ GPIO\ port\ references}}
+\DoxyCodeLine{GPIO\_TypeDef*\ portData\ =\ GPIOA;}
+\DoxyCodeLine{GPIO\_TypeDef*\ portCtrlRW\ =\ GPIOB;}
+\DoxyCodeLine{GPIO\_TypeDef*\ portCtrlEN\ =\ GPIOC;}
+\DoxyCodeLine{GPIO\_TypeDef*\ portCtrlRS\ =\ GPIOD;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Create\ an\ instance\ of\ the\ LCD\ class}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_l_c_d}{LCD}}\ lcd(portData,\ portCtrlRW,\ portCtrlEN,\ portCtrlRS);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Initialize\ the\ LCD\ control\ and\ data\ pins}}
+\DoxyCodeLine{\ \ \ \ lcd.initCtrlPins(0,\ 1,\ 2);\ \textcolor{comment}{//\ Example\ pin\ numbers}}
+\DoxyCodeLine{\ \ \ \ lcd.initDataPins(3,\ 4,\ 5,\ 6);\ \textcolor{comment}{//\ Example\ pin\ numbers}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Set\ up\ the\ LCD\ display\ parameters}}
+\DoxyCodeLine{\ \ \ \ lcd.Begin(16,\ 2);\ \textcolor{comment}{//\ 16\ columns,\ 2\ rows}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Print\ a\ message\ on\ the\ LCD}}
+\DoxyCodeLine{\ \ \ \ lcd.printLCD(\textcolor{stringliteral}{"{}Hello,\ World!"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Set\ the\ cursor\ position}}
+\DoxyCodeLine{\ \ \ \ lcd.setCursor(0,\ 1);\ \textcolor{comment}{//\ Second\ row,\ first\ column}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Print\ another\ message,\ printf\ style\ parameters...}}
+\DoxyCodeLine{\ \ \ \ lcd.printFormatted(\textcolor{stringliteral}{"{}The\ answer\ is:\ \%d"{}},\ 42);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Your\ main\ program\ logic\ here}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{Example for C project}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}LCD\_wrapper.h"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ GPIO\ port\ references\ -\/\ those\ are\ usually\ located\ in\ main.h\ when\ using\ STM32CubeMX.\ }}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ DSP\_D4\_Pin\ GPIO\_PIN\_8}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ DSP\_D4\_GPIO\_Port\ GPIOC}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ DSP\_D5\_Pin\ GPIO\_PIN\_9}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ DSP\_D6\_Pin\ GPIO\_PIN\_10}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ DSP\_D7\_Pin\ GPIO\_PIN\_11}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ DSP\_RS\_Pin\ GPIO\_PIN\_3}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ DSP\_RS\_GPIO\_Port\ GPIOF}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ DSP\_EN\_Pin\ GPIO\_PIN\_12}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ DSP\_EN\_GPIO\_Port\ GPIOC}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ DSP\_RW\_Pin\ GPIO\_PIN\_2}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ DSP\_RW\_GPIO\_Port\ GPIOD}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Create\ an\ instance\ of\ the\ LCD\ class}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_l_c_d}{LCD}}\ *lcd;}
+\DoxyCodeLine{\ \ \ \ lcd\ =\ LCD\_create(DSP\_D4\_GPIO\_Port,\ DSP\_RW\_GPIO\_Port,\ DSP\_EN\_GPIO\_Port,\ DSP\_RS\_GPIO\_Port);}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Initialize\ the\ LCD\ control\ and\ data\ pins}}
+\DoxyCodeLine{\ \ \ \ LCD\_initCtrlPins(lcd,\ DSP\_RW\_Pin,\ DSP\_EN\_Pin,\ DSP\_RS\_Pin);}
+\DoxyCodeLine{\ \ \ \ LCD\_initDataPins(lcd,\ DSP\_D4\_Pin,\ \ DSP\_D5\_Pin,\ DSP\_D6\_Pin,\ DSP\_D7\_Pin);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Set\ up\ the\ LCD\ display\ parameters}}
+\DoxyCodeLine{\ \ \ \ LCD\_Begin(lcd,\ 20,\ 4);\ \textcolor{comment}{//\ 20\ columns\ and\ 4\ lines.\ }}
+\DoxyCodeLine{\ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Print\ a\ message\ on\ the\ LCD}}
+\DoxyCodeLine{\ \ \ \ LCD\_print(\ lcd,\ \textcolor{stringliteral}{"{}Hello\ World\ !"{}});}
+\DoxyCodeLine{\ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Set\ the\ cursor\ position}}
+\DoxyCodeLine{\ \ \ \ LCD\_setCursor(\ lcd,\ 0,\ 2);}
+\DoxyCodeLine{\ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Print\ another\ message\ as\ formatted\ text}}
+\DoxyCodeLine{\ \ \ \ LCD\_printFormatted(lcd,\ \textcolor{stringliteral}{"{}The\ answer\ is:\ \%d"{}},\ 42);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Your\ main\ program\ logic\ here}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{Notes}\label{md__r_e_a_d_m_e_autotoc_md5}
+The C++ constructor or LCD\+\_\+\+Create method accepts four port parameters\+: data port, RW port, EN port, and RS port. These ports can either be the same for all or different from each other. This change was made to enhance flexibility, considering that the microcontroller has numerous peripherals reserved for specific ports. By allowing different ports, it becomes easier to connect the display without disabling other essential peripherals. Finding seven IO pins on a single port without disabling other peripherals can be challenging. Moreover, when utilizing a NUKLEO board, it is preferable to have the \mbox{\hyperlink{class_l_c_d}{LCD}} pins positioned close to each other on the board connectors, facilitating the connection process.
+
+Furthermore, this library enables the connection of multiple displays to the same microcontroller. You can create and initialize two \mbox{\hyperlink{class_l_c_d}{LCD}} objects, configuring each of them separately. Assign the names \char`\"{}lcd1\char`\"{} and \char`\"{}lcd2\char`\"{} to the objects, enabling independent printing on both displays.
+
+ 

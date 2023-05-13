@@ -1,0 +1,569 @@
+\hypertarget{_l_c_d__wrapper_8cpp}{}\doxysection{Src/\+LCD\+\_\+wrapper.cpp File Reference}
+\label{_l_c_d__wrapper_8cpp}\index{Src/LCD\_wrapper.cpp@{Src/LCD\_wrapper.cpp}}
+
+
+Wrapper functions for interfacing with an \mbox{\hyperlink{class_l_c_d}{LCD}} display.  
+
+
+{\ttfamily \#include \char`\"{}LCD\+\_\+wrapper.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}LCD.\+hpp\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_l_c_d___wrapper}{LCD\+\_\+\+Wrapper}}
+\begin{DoxyCompactList}\small\item\em Wrapper structure to hold an instance of the \mbox{\hyperlink{class_l_c_d}{LCD}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$ \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a01dbc8a6196c278d6735eb6038d15c53}{LCD\+\_\+create}} (void $\ast$portdata, void $\ast$portctrl\+RW, void $\ast$portctrl\+EN, void $\ast$portctrl\+RS)
+\begin{DoxyCompactList}\small\item\em Create an \mbox{\hyperlink{class_l_c_d}{LCD}} object and return a pointer to it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a16d6680deea7023bfe375f0bc60a227c}{LCD\+\_\+init\+Ctrl\+Pins}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd, uint16\+\_\+t ctrl\+RW, uint16\+\_\+t ctrl\+EN, uint16\+\_\+t ctrl\+RS)
+\begin{DoxyCompactList}\small\item\em Initialize control pins of the \mbox{\hyperlink{class_l_c_d}{LCD}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a8131e4296558feac071e3c86c0b0c3a9}{LCD\+\_\+init\+Data\+Pins}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd, uint16\+\_\+t val4, uint16\+\_\+t val5, uint16\+\_\+t val6, uint16\+\_\+t val7)
+\begin{DoxyCompactList}\small\item\em Initialize data pins of the \mbox{\hyperlink{class_l_c_d}{LCD}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a0a5255a313d7ae62fef1e9ba8fc17ff5}{LCD\+\_\+print}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd, const char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Print a message to the \mbox{\hyperlink{class_l_c_d}{LCD}} display. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_l_c_d__wrapper_8cpp_acbcd23fe481db8754376fd0cf564093c}{LCD\+\_\+print\+Formatted}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd, const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em Print a formatted message to the \mbox{\hyperlink{class_l_c_d}{LCD}} display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_af3ef47e7eaefe7dd5e047ab832687a89}{LCD\+\_\+putch}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd, uint8\+\_\+t ch)
+\begin{DoxyCompactList}\small\item\em Write a character to the \mbox{\hyperlink{class_l_c_d}{LCD}} display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_ae5c48322116a2ea27509b1cda776515b}{LCD\+\_\+set\+Cursor}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd, int x, int y)
+\begin{DoxyCompactList}\small\item\em Set the cursor position on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a39ed2c19ef55ea8d0d59f8f441841b3d}{LCD\+\_\+\+Begin}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd, int cols, int rows)
+\begin{DoxyCompactList}\small\item\em Initialize the \mbox{\hyperlink{class_l_c_d}{LCD}} display with the specified number of columns and rows. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a16ca2868b331dcee51d46cbd69b57a9b}{LCD\+\_\+create\+Char}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd, uint8\+\_\+t location, uint8\+\_\+t charmap\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Create a custom character on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a533b9053e73ac14400391240a5a6cc89}{LCD\+\_\+no\+Autoscroll}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd)
+\begin{DoxyCompactList}\small\item\em Disable autoscroll on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_ac66a06b34e0449d2815eaa2e27deab1f}{LCD\+\_\+autoscroll}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd)
+\begin{DoxyCompactList}\small\item\em Enable autoscroll on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a58ee12377412ca21ee920ca807dc1f88}{LCD\+\_\+left\+To\+Right}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd)
+\begin{DoxyCompactList}\small\item\em Set the text direction on the \mbox{\hyperlink{class_l_c_d}{LCD}} display to left-\/to-\/right. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_aba6fbe3c2d5b2c8de259a6e6649467a8}{LCD\+\_\+right\+To\+Left}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd)
+\begin{DoxyCompactList}\small\item\em Set the text direction on the \mbox{\hyperlink{class_l_c_d}{LCD}} display to right-\/to-\/left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a93aa6a2344da09fac00674670043c7b3}{LCD\+\_\+scroll\+Display\+Left}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd)
+\begin{DoxyCompactList}\small\item\em Scroll the display content to the left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a5ec45a922ed875f11c1a45fed29c24af}{LCD\+\_\+scroll\+Display\+Right}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd)
+\begin{DoxyCompactList}\small\item\em Scroll the display content to the right. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_ac004bbbefe55b88cf37be77381e5b918}{LCD\+\_\+no\+Display}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd)
+\begin{DoxyCompactList}\small\item\em Turn off the display on the \mbox{\hyperlink{class_l_c_d}{LCD}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_afd332bdd9ee703bbe453646452287c97}{LCD\+\_\+display}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd)
+\begin{DoxyCompactList}\small\item\em Turn on the display on the \mbox{\hyperlink{class_l_c_d}{LCD}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a3ccf6bc072d1d03ffb456989193daca8}{LCD\+\_\+no\+Cursor}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd)
+\begin{DoxyCompactList}\small\item\em Hide the cursor on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a8ef70e8efb0e82639345be05a74766cf}{LCD\+\_\+cursor}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd)
+\begin{DoxyCompactList}\small\item\em Show the cursor on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a9f4e5a434d4b3835c39c1b410b1af630}{LCD\+\_\+clear}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd)
+\begin{DoxyCompactList}\small\item\em Clear the \mbox{\hyperlink{class_l_c_d}{LCD}} display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__wrapper_8cpp_a2471717d3a966e9179f61f53d0c7edb7}{LCD\+\_\+home}} (\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$lcd)
+\begin{DoxyCompactList}\small\item\em Set the cursor to the home position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper functions for interfacing with an \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_ac66a06b34e0449d2815eaa2e27deab1f}\label{_l_c_d__wrapper_8cpp_ac66a06b34e0449d2815eaa2e27deab1f}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_autoscroll@{LCD\_autoscroll}}
+\index{LCD\_autoscroll@{LCD\_autoscroll}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_autoscroll()}{LCD\_autoscroll()}}
+{\footnotesize\ttfamily void LCD\+\_\+autoscroll (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Enable autoscroll on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+Enables autoscroll on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function enables the autoscroll feature on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. It allows the display to automatically scroll when new text is added.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a39ed2c19ef55ea8d0d59f8f441841b3d}\label{_l_c_d__wrapper_8cpp_a39ed2c19ef55ea8d0d59f8f441841b3d}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_Begin@{LCD\_Begin}}
+\index{LCD\_Begin@{LCD\_Begin}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_Begin()}{LCD\_Begin()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Begin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd,  }\item[{int}]{cols,  }\item[{int}]{rows }\end{DoxyParamCaption})}
+
+
+
+Initialize the \mbox{\hyperlink{class_l_c_d}{LCD}} display with the specified number of columns and rows. 
+
+Initializes the \mbox{\hyperlink{class_l_c_d}{LCD}} with the specified number of columns and rows.
+
+This function initializes the \mbox{\hyperlink{class_l_c_d}{LCD}} display with the specified number of columns and rows. It configures the display to operate in the given size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object \\
+\hline
+{\em cols} & Number of columns in the display \\
+\hline
+{\em rows} & Number of rows in the display\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a9f4e5a434d4b3835c39c1b410b1af630}\label{_l_c_d__wrapper_8cpp_a9f4e5a434d4b3835c39c1b410b1af630}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_clear@{LCD\_clear}}
+\index{LCD\_clear@{LCD\_clear}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_clear()}{LCD\_clear()}}
+{\footnotesize\ttfamily void LCD\+\_\+clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Clear the \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+Clears the \mbox{\hyperlink{class_l_c_d}{LCD}} screen.
+
+This function clears the content on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. It removes all characters and sets the cursor to the home position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a01dbc8a6196c278d6735eb6038d15c53}\label{_l_c_d__wrapper_8cpp_a01dbc8a6196c278d6735eb6038d15c53}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_create@{LCD\_create}}
+\index{LCD\_create@{LCD\_create}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_create()}{LCD\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$ LCD\+\_\+create (\begin{DoxyParamCaption}\item[{void $\ast$}]{portdata,  }\item[{void $\ast$}]{portctrl\+RW,  }\item[{void $\ast$}]{portctrl\+EN,  }\item[{void $\ast$}]{portctrl\+RS }\end{DoxyParamCaption})}
+
+
+
+Create an \mbox{\hyperlink{class_l_c_d}{LCD}} object and return a pointer to it. 
+
+Creates an instance of the \mbox{\hyperlink{class_l_c_d}{LCD}} object.
+
+This function creates an \mbox{\hyperlink{class_l_c_d}{LCD}} object by instantiating the \mbox{\hyperlink{class_l_c_d}{LCD}} class. The provided port data and control pins are used to initialize the \mbox{\hyperlink{class_l_c_d}{LCD}}. Returns a pointer to the created \mbox{\hyperlink{class_l_c_d}{LCD}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em portdata} & Pointer to the data port \\
+\hline
+{\em portctrl\+RW} & Pointer to the RW control port \\
+\hline
+{\em portctrl\+EN} & Pointer to the EN control port \\
+\hline
+{\em portctrl\+RS} & Pointer to the RS control port\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the created \mbox{\hyperlink{class_l_c_d}{LCD}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a16ca2868b331dcee51d46cbd69b57a9b}\label{_l_c_d__wrapper_8cpp_a16ca2868b331dcee51d46cbd69b57a9b}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_createChar@{LCD\_createChar}}
+\index{LCD\_createChar@{LCD\_createChar}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_createChar()}{LCD\_createChar()}}
+{\footnotesize\ttfamily void LCD\+\_\+create\+Char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd,  }\item[{uint8\+\_\+t}]{location,  }\item[{uint8\+\_\+t}]{charmap\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Create a custom character on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+Creates a custom character for the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function creates a custom character on the \mbox{\hyperlink{class_l_c_d}{LCD}} display using the provided character location and character map data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object \\
+\hline
+{\em location} & The location (0-\/7) to store the custom character \\
+\hline
+{\em charmap} & The character map data defining the custom character\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a8ef70e8efb0e82639345be05a74766cf}\label{_l_c_d__wrapper_8cpp_a8ef70e8efb0e82639345be05a74766cf}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_cursor@{LCD\_cursor}}
+\index{LCD\_cursor@{LCD\_cursor}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_cursor()}{LCD\_cursor()}}
+{\footnotesize\ttfamily void LCD\+\_\+cursor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Show the cursor on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+Turns on the cursor on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function shows the cursor on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. The cursor is displayed and can be used for navigation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_afd332bdd9ee703bbe453646452287c97}\label{_l_c_d__wrapper_8cpp_afd332bdd9ee703bbe453646452287c97}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_display@{LCD\_display}}
+\index{LCD\_display@{LCD\_display}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_display()}{LCD\_display()}}
+{\footnotesize\ttfamily void LCD\+\_\+display (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Turn on the display on the \mbox{\hyperlink{class_l_c_d}{LCD}}. 
+
+Turns on the display on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function turns on the display on the \mbox{\hyperlink{class_l_c_d}{LCD}}. It displays the cursor and any previously written content.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a2471717d3a966e9179f61f53d0c7edb7}\label{_l_c_d__wrapper_8cpp_a2471717d3a966e9179f61f53d0c7edb7}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_home@{LCD\_home}}
+\index{LCD\_home@{LCD\_home}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_home()}{LCD\_home()}}
+{\footnotesize\ttfamily void LCD\+\_\+home (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Set the cursor to the home position. 
+
+Moves the cursor to the home position on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function sets the cursor position to the home position on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. The home position is the top-\/left corner of the display (column 0, row 0).
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a16d6680deea7023bfe375f0bc60a227c}\label{_l_c_d__wrapper_8cpp_a16d6680deea7023bfe375f0bc60a227c}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_initCtrlPins@{LCD\_initCtrlPins}}
+\index{LCD\_initCtrlPins@{LCD\_initCtrlPins}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_initCtrlPins()}{LCD\_initCtrlPins()}}
+{\footnotesize\ttfamily void LCD\+\_\+init\+Ctrl\+Pins (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd,  }\item[{uint16\+\_\+t}]{ctrl\+RW,  }\item[{uint16\+\_\+t}]{ctrl\+EN,  }\item[{uint16\+\_\+t}]{ctrl\+RS }\end{DoxyParamCaption})}
+
+
+
+Initialize control pins of the \mbox{\hyperlink{class_l_c_d}{LCD}}. 
+
+Initializes the control pins of the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function initializes the control pins of the \mbox{\hyperlink{class_l_c_d}{LCD}}, including the control read/write (RW), control enable (EN), and control register select (RS) pins.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object \\
+\hline
+{\em ctrl\+RW} & The control pin for read/write signal \\
+\hline
+{\em ctrl\+EN} & The control pin for enable signal \\
+\hline
+{\em ctrl\+RS} & The control pin for register select signal\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a8131e4296558feac071e3c86c0b0c3a9}\label{_l_c_d__wrapper_8cpp_a8131e4296558feac071e3c86c0b0c3a9}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_initDataPins@{LCD\_initDataPins}}
+\index{LCD\_initDataPins@{LCD\_initDataPins}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_initDataPins()}{LCD\_initDataPins()}}
+{\footnotesize\ttfamily void LCD\+\_\+init\+Data\+Pins (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd,  }\item[{uint16\+\_\+t}]{val4,  }\item[{uint16\+\_\+t}]{val5,  }\item[{uint16\+\_\+t}]{val6,  }\item[{uint16\+\_\+t}]{val7 }\end{DoxyParamCaption})}
+
+
+
+Initialize data pins of the \mbox{\hyperlink{class_l_c_d}{LCD}}. 
+
+Initializes the data pins of the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function initializes the data pins of the \mbox{\hyperlink{class_l_c_d}{LCD}}, including the individual data pins used for communication with the \mbox{\hyperlink{class_l_c_d}{LCD}} module.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object \\
+\hline
+{\em val4} & The value for data pin 4 \\
+\hline
+{\em val5} & The value for data pin 5 \\
+\hline
+{\em val6} & The value for data pin 6 \\
+\hline
+{\em val7} & The value for data pin 7\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a58ee12377412ca21ee920ca807dc1f88}\label{_l_c_d__wrapper_8cpp_a58ee12377412ca21ee920ca807dc1f88}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_leftToRight@{LCD\_leftToRight}}
+\index{LCD\_leftToRight@{LCD\_leftToRight}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_leftToRight()}{LCD\_leftToRight()}}
+{\footnotesize\ttfamily void LCD\+\_\+left\+To\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Set the text direction on the \mbox{\hyperlink{class_l_c_d}{LCD}} display to left-\/to-\/right. 
+
+Sets the text direction to left-\/to-\/right on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function sets the text direction on the \mbox{\hyperlink{class_l_c_d}{LCD}} display to left-\/to-\/right. It ensures that subsequent characters are displayed from left to right.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a533b9053e73ac14400391240a5a6cc89}\label{_l_c_d__wrapper_8cpp_a533b9053e73ac14400391240a5a6cc89}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_noAutoscroll@{LCD\_noAutoscroll}}
+\index{LCD\_noAutoscroll@{LCD\_noAutoscroll}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_noAutoscroll()}{LCD\_noAutoscroll()}}
+{\footnotesize\ttfamily void LCD\+\_\+no\+Autoscroll (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Disable autoscroll on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+Disables autoscroll on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function disables the autoscroll feature on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. It prevents the display from automatically scrolling when new text is added.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a3ccf6bc072d1d03ffb456989193daca8}\label{_l_c_d__wrapper_8cpp_a3ccf6bc072d1d03ffb456989193daca8}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_noCursor@{LCD\_noCursor}}
+\index{LCD\_noCursor@{LCD\_noCursor}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_noCursor()}{LCD\_noCursor()}}
+{\footnotesize\ttfamily void LCD\+\_\+no\+Cursor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Hide the cursor on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+Turns off the cursor on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function hides the cursor on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. The cursor is not visible, but the content is still displayed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_ac004bbbefe55b88cf37be77381e5b918}\label{_l_c_d__wrapper_8cpp_ac004bbbefe55b88cf37be77381e5b918}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_noDisplay@{LCD\_noDisplay}}
+\index{LCD\_noDisplay@{LCD\_noDisplay}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_noDisplay()}{LCD\_noDisplay()}}
+{\footnotesize\ttfamily void LCD\+\_\+no\+Display (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Turn off the display on the \mbox{\hyperlink{class_l_c_d}{LCD}}. 
+
+Turns off the display on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function turns off the display on the \mbox{\hyperlink{class_l_c_d}{LCD}}. It clears the display and turns off the cursor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a0a5255a313d7ae62fef1e9ba8fc17ff5}\label{_l_c_d__wrapper_8cpp_a0a5255a313d7ae62fef1e9ba8fc17ff5}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_print@{LCD\_print}}
+\index{LCD\_print@{LCD\_print}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_print()}{LCD\_print()}}
+{\footnotesize\ttfamily void LCD\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd,  }\item[{const char $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Print a message to the \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+Prints the given message on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function prints a given message to the \mbox{\hyperlink{class_l_c_d}{LCD}} display.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object \\
+\hline
+{\em message} & The message to be printed on the display\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_acbcd23fe481db8754376fd0cf564093c}\label{_l_c_d__wrapper_8cpp_acbcd23fe481db8754376fd0cf564093c}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_printFormatted@{LCD\_printFormatted}}
+\index{LCD\_printFormatted@{LCD\_printFormatted}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_printFormatted()}{LCD\_printFormatted()}}
+{\footnotesize\ttfamily int LCD\+\_\+print\+Formatted (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd,  }\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Print a formatted message to the \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+Print formatted string to \mbox{\hyperlink{class_l_c_d}{LCD}} display.
+
+This function prints a formatted message to the \mbox{\hyperlink{class_l_c_d}{LCD}} display using the provided format string and variable arguments. The formatted message is printed to the \mbox{\hyperlink{class_l_c_d}{LCD}} display if the formatting is successful.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object \\
+\hline
+{\em format} & The format string for the message \\
+\hline
+{\em ...} & Variable arguments to be formatted\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of characters printed on success, or a negative value on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_af3ef47e7eaefe7dd5e047ab832687a89}\label{_l_c_d__wrapper_8cpp_af3ef47e7eaefe7dd5e047ab832687a89}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_putch@{LCD\_putch}}
+\index{LCD\_putch@{LCD\_putch}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_putch()}{LCD\_putch()}}
+{\footnotesize\ttfamily void LCD\+\_\+putch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd,  }\item[{uint8\+\_\+t}]{ch }\end{DoxyParamCaption})}
+
+
+
+Write a character to the \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+Outputs a character to the \mbox{\hyperlink{class_l_c_d}{LCD}} display.
+
+This function writes a character to the \mbox{\hyperlink{class_l_c_d}{LCD}} display.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object \\
+\hline
+{\em ch} & The character to be written\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_aba6fbe3c2d5b2c8de259a6e6649467a8}\label{_l_c_d__wrapper_8cpp_aba6fbe3c2d5b2c8de259a6e6649467a8}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_rightToLeft@{LCD\_rightToLeft}}
+\index{LCD\_rightToLeft@{LCD\_rightToLeft}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_rightToLeft()}{LCD\_rightToLeft()}}
+{\footnotesize\ttfamily void LCD\+\_\+right\+To\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Set the text direction on the \mbox{\hyperlink{class_l_c_d}{LCD}} display to right-\/to-\/left. 
+
+Sets the text direction to right-\/to-\/left on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function sets the text direction on the \mbox{\hyperlink{class_l_c_d}{LCD}} display to right-\/to-\/left. It ensures that subsequent characters are displayed from right to left.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a93aa6a2344da09fac00674670043c7b3}\label{_l_c_d__wrapper_8cpp_a93aa6a2344da09fac00674670043c7b3}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_scrollDisplayLeft@{LCD\_scrollDisplayLeft}}
+\index{LCD\_scrollDisplayLeft@{LCD\_scrollDisplayLeft}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_scrollDisplayLeft()}{LCD\_scrollDisplayLeft()}}
+{\footnotesize\ttfamily void LCD\+\_\+scroll\+Display\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Scroll the display content to the left. 
+
+Scrolls the display to the left on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function scrolls the content on the \mbox{\hyperlink{class_l_c_d}{LCD}} display to the left. It shifts the display content to the left by one position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_a5ec45a922ed875f11c1a45fed29c24af}\label{_l_c_d__wrapper_8cpp_a5ec45a922ed875f11c1a45fed29c24af}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_scrollDisplayRight@{LCD\_scrollDisplayRight}}
+\index{LCD\_scrollDisplayRight@{LCD\_scrollDisplayRight}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_scrollDisplayRight()}{LCD\_scrollDisplayRight()}}
+{\footnotesize\ttfamily void LCD\+\_\+scroll\+Display\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Scroll the display content to the right. 
+
+Scrolls the display to the right on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function scrolls the content on the \mbox{\hyperlink{class_l_c_d}{LCD}} display to the right. It shifts the display content to the right by one position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_l_c_d__wrapper_8cpp_ae5c48322116a2ea27509b1cda776515b}\label{_l_c_d__wrapper_8cpp_ae5c48322116a2ea27509b1cda776515b}} 
+\index{LCD\_wrapper.cpp@{LCD\_wrapper.cpp}!LCD\_setCursor@{LCD\_setCursor}}
+\index{LCD\_setCursor@{LCD\_setCursor}!LCD\_wrapper.cpp@{LCD\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{LCD\_setCursor()}{LCD\_setCursor()}}
+{\footnotesize\ttfamily void LCD\+\_\+set\+Cursor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_l_c_d}{LCD}} $\ast$}]{lcd,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Set the cursor position on the \mbox{\hyperlink{class_l_c_d}{LCD}} display. 
+
+Sets the cursor position on the \mbox{\hyperlink{class_l_c_d}{LCD}}.
+
+This function sets the cursor position on the \mbox{\hyperlink{class_l_c_d}{LCD}} display using the specified column (x) and row (y) coordinates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the \mbox{\hyperlink{class_l_c_d}{LCD}} object \\
+\hline
+{\em x} & The column position (0-\/based index) \\
+\hline
+{\em y} & The row position (0-\/based index)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}

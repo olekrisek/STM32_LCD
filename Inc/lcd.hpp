@@ -53,6 +53,14 @@
 #define LCD_5x10DOTS 0x04
 #define LCD_5x8DOTS 0x00
 
+
+// low-level functions
+void send(uint8_t, GPIO_PinState);
+void write4bits(uint8_t);
+void write8bits(uint8_t);
+void pulseEnable(void);
+
+
 #include <iostream>
 #include <string>
 
@@ -63,6 +71,7 @@ public:
     void initCtrlPins(uint16_t ctrlRW, uint16_t ctrlEN, uint16_t ctrlRS) ;
     size_t printLCD(const std::string& message = "");
     int printFormatted(const char* format, ...);
+    void putch(uint8_t ch) ;
     void setCursor(uint8_t x=0, uint8_t y=0);
     void Begin ( int cols, int rows );
     void createChar(uint8_t location, uint8_t charmap[]);

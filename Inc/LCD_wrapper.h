@@ -99,6 +99,21 @@ void LCD_print(LCD* lcd, const char* message);
 int LCD_printFormatted(LCD* lcd, const char* format, ...);
 
 /**
+ * @brief Outputs a character to the LCD display.
+ *
+ * This function writes a character to the LCD display.
+ * If the character is 0, the function returns without performing any action.
+ * Otherwise, it writes the character to the display and increments the internal counter.
+ *
+ * @param ch The character to be written to the display.
+ *
+ * @return None
+ */
+
+void LCD_putch(LCD* lcd, uint8_t ch) ;
+
+
+/**
  * @brief Sets the cursor position on the LCD.
  *
  * @param lcd Pointer to the LCD object.
