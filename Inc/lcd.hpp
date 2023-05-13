@@ -1,3 +1,37 @@
+/**
+ * @mainpage LCD Library for STM32 Microcontroller
+ *
+ * @section intro Introduction
+ * The LCD library for STM32 Microcontroller provides a convenient way to drive a text-based LCD display
+ * using STM32 microcontrollers. This library is based on the existing C code from the LiquidCrystal library,
+ * but with additional enhancements and modifications to better suit the STM32 platform.
+ *
+ * This library offers a different initialization method that allows the digital lines (data lines) to be
+ * on the same port while the control signals can be on different ports. It also provides support for multiple
+ * LCD displays connected to the same microcontroller.
+ *
+ * One notable feature of this library is the modified print override, which ensures that the printed data
+ * is directed specifically to the targeted LCD display without interfering with other print destinations
+ * such as console or UART implementations.
+ *
+ * @section usage Usage
+ * To use the LCD library in your STM32 project, include the appropriate header files and link against
+ * the library during the compilation process. Refer to the documentation and examples for detailed instructions
+ * on how to integrate and utilize the library's functionality in your code.
+ *
+ * @section resources Resources
+ * - GitHub Repository: [https://github.com/olekrisek/STM32_LCD]
+ * - Documentation: Doc/html folder of the project
+ *
+ * @section license License
+ * This library is released under the GNU Lesser General Public License license. Please refer to the license file provided
+ * with the library for more information.
+ *
+ * @section contact Contact
+ * For any inquiries or support, please contact the development team at olekrisek@gmail.com.
+ */
+
+
 #ifndef LCD_H
 #define LCD_H
 

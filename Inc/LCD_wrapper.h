@@ -20,11 +20,11 @@
  * on how to integrate and utilize the library's functionality in your code.
  *
  * @section resources Resources
- * - GitHub Repository: [link to the GitHub repository]
- * - Documentation: [link to the online documentation]
+ * - GitHub Repository: [https://github.com/olekrisek/STM32_LCD]
+ * - Documentation: Doc/html folder of the project
  *
  * @section license License
- * This library is released under the [license name] license. Please refer to the license file provided
+ * This library is released under the GNU Lesser General Public License license. Please refer to the license file provided
  * with the library for more information.
  *
  * @section contact Contact

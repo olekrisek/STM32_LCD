@@ -2,131 +2,132 @@
 \label{lcd_8hpp_source}\index{Inc/lcd.hpp@{Inc/lcd.hpp}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LCD\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LCD\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_hal.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_ucpd.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_bus.h"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_cortex.h"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_rcc.h"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_system.h"{}}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_utils.h"{}}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_pwr.h"{}}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_gpio.h"{}}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_dma.h"{}}}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_exti.h"{}}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <cstdarg>}}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ LCD\_CLEARDISPLAY\ 0x01}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ LCD\_RETURNHOME\ 0x02}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ LCD\_ENTRYMODESET\ 0x04}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ LCD\_DISPLAYCONTROL\ 0x08}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ LCD\_CURSORSHIFT\ 0x10}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LCD\_FUNCTIONSET\ 0x20}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ LCD\_SETCGRAMADDR\ 0x40}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ LCD\_SETDDRAMADDR\ 0x80}}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{comment}{//\ flags\ for\ display\ entry\ mode}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ LCD\_ENTRYRIGHT\ 0x00}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ LCD\_ENTRYLEFT\ 0x02}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ LCD\_ENTRYSHIFTINCREMENT\ 0x01}}
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ LCD\_ENTRYSHIFTDECREMENT\ 0x00}}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{comment}{//\ flags\ for\ display\ on/off\ control}}
-\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ LCD\_DISPLAYON\ 0x04}}
-\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ LCD\_DISPLAYOFF\ 0x00}}
-\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ LCD\_CURSORON\ 0x02}}
-\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ LCD\_CURSOROFF\ 0x00}}
-\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ LCD\_BLINKON\ 0x01}}
-\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ LCD\_BLINKOFF\ 0x00}}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{comment}{//\ flags\ for\ display/cursor\ shift}}
-\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ LCD\_DISPLAYMOVE\ 0x08}}
-\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ LCD\_CURSORMOVE\ 0x00}}
-\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ LCD\_MOVERIGHT\ 0x04}}
-\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ LCD\_MOVELEFT\ 0x00}}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{comment}{//\ flags\ for\ function\ set}}
-\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ LCD\_8BITMODE\ 0x10}}
-\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ LCD\_4BITMODE\ 0x00}}
-\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ LCD\_2LINE\ 0x08}}
-\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ LCD\_1LINE\ 0x00}}
-\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ LCD\_5x10DOTS\ 0x04}}
-\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ LCD\_5x8DOTS\ 0x00}}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \textcolor{comment}{//\ low-\/level\ functions}}
-\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ send(uint8\_t,\ GPIO\_PinState);}
-\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ write4bits(uint8\_t);}
-\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ write8bits(uint8\_t);}
-\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ pulseEnable(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_l_c_d}{LCD}}\ \{}
-\DoxyCodeLine{00068\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_l_c_d}{LCD}}(GPIO\_TypeDef*\ portdata,\ GPIO\_TypeDef*\ portctrlRW,\ GPIO\_TypeDef*\ portctrlEN,\ GPIO\_TypeDef*\ portctrlRS);}
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a5a69772cb66723fcf2700618226f0117}{initDataPins}}(uint16\_t\ val4,\ uint16\_t\ val5,\ uint16\_t\ val6,\ uint16\_t\ val7);}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_ae0354650ab5a8fd20ded471dbb91a595}{initCtrlPins}}(uint16\_t\ ctrlRW,\ uint16\_t\ ctrlEN,\ uint16\_t\ ctrlRS)\ ;}
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_l_c_d_af23af138b827bde2a84cbb6ccb3d182f}{printLCD}}(\textcolor{keyword}{const}\ std::string\&\ message\ =\ \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_c_d_a0a21a3e48bbf88766ae85c5f90702d97}{printFormatted}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format,\ ...);}
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_ad7734dbe71f0ac78e556dfbf4967fe15}{putch}}(uint8\_t\ ch)\ ;}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_aebf99637cb9616d60b242dc8aaf0850a}{setCursor}}(uint8\_t\ x=0,\ uint8\_t\ y=0);}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a4cb65a0bd0e7a18b3ba18ea70e200346}{Begin}}\ (\ \textcolor{keywordtype}{int}\ cols,\ \textcolor{keywordtype}{int}\ rows\ );}
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a91cba8f93c692abcddf8bc3de58d2d3a}{createChar}}(uint8\_t\ location,\ uint8\_t\ charmap[]);}
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_aeff37c905e5f6623ef7743103347c92d}{noAutoscroll}}(\textcolor{keywordtype}{void})\ ;}
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_ac6a18bccf905cf2c71b0ebe86cf2787c}{autoscroll}}(\textcolor{keywordtype}{void})\ ;}
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a88017e4902a4d07084e57a62e5d6401c}{leftToRight}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_ada7852125c06d02b515c0a4bbb931c38}{rightToLeft}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_aa905559d25aba4b87a4e8e614729b8ec}{scrollDisplayLeft}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a4aaf9a8b204548fbf45d2436254e7a0c}{scrollDisplayRight}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a02a1754e67064533d865fa512df28c83}{noDisplay}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_aaeb946d140898a5611a5688866600545}{display}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_ac14ca68f3abe49812d299e9a10e42c64}{noCursor}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a0cee3ae98d3ea09a57ce225508cc645a}{cursor}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_aca6cd9e401283d5fa4917d53260b3ba9}{clear}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_add2d8956c36ba45c36f234e442103f3c}{home}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#ifndef\ LCD\_H}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ LCD\_H}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_hal.h"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_ucpd.h"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_bus.h"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_cortex.h"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_rcc.h"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_system.h"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_utils.h"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_pwr.h"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_gpio.h"{}}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_dma.h"{}}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}stm32l5xx\_ll\_exti.h"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <cstdarg>}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ LCD\_CLEARDISPLAY\ 0x01}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ LCD\_RETURNHOME\ 0x02}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ LCD\_ENTRYMODESET\ 0x04}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ LCD\_DISPLAYCONTROL\ 0x08}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ LCD\_CURSORSHIFT\ 0x10}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ LCD\_FUNCTIONSET\ 0x20}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ LCD\_SETCGRAMADDR\ 0x40}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ LCD\_SETDDRAMADDR\ 0x80}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ flags\ for\ display\ entry\ mode}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ LCD\_ENTRYRIGHT\ 0x00}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ LCD\_ENTRYLEFT\ 0x02}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ LCD\_ENTRYSHIFTINCREMENT\ 0x01}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ LCD\_ENTRYSHIFTDECREMENT\ 0x00}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ flags\ for\ display\ on/off\ control}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ LCD\_DISPLAYON\ 0x04}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ LCD\_DISPLAYOFF\ 0x00}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ LCD\_CURSORON\ 0x02}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ LCD\_CURSOROFF\ 0x00}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ LCD\_BLINKON\ 0x01}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ LCD\_BLINKOFF\ 0x00}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{comment}{//\ flags\ for\ display/cursor\ shift}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ LCD\_DISPLAYMOVE\ 0x08}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ LCD\_CURSORMOVE\ 0x00}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ LCD\_MOVERIGHT\ 0x04}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ LCD\_MOVELEFT\ 0x00}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ flags\ for\ function\ set}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ LCD\_8BITMODE\ 0x10}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ LCD\_4BITMODE\ 0x00}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ LCD\_2LINE\ 0x08}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ LCD\_1LINE\ 0x00}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ LCD\_5x10DOTS\ 0x04}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ LCD\_5x8DOTS\ 0x00}}
+\DoxyCodeLine{00089\ }
 \DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00093\ \ \ \ \ GPIO\_TypeDef\ *vPortData;}
-\DoxyCodeLine{00094\ \ \ \ \ GPIO\_TypeDef\ *vPortCtrlRW;}
-\DoxyCodeLine{00095\ \ \ \ \ GPIO\_TypeDef\ *vPortCtrlEN;}
-\DoxyCodeLine{00096\ \ \ \ \ GPIO\_TypeDef\ *vPortCtrlRS;}
-\DoxyCodeLine{00097\ \ \ \ \ uint16\_t\ d4,\ d5,\ d6,\ d7;}
-\DoxyCodeLine{00098\ \ \ \ \ uint16\_t\ \_data\_pins[8];}
-\DoxyCodeLine{00099\ \ \ \ \ uint16\_t\ vCtrlRW,\ vCtrlEN,\ vCtrlRS;}
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ low-\/level\ functions}}
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ send(uint8\_t,\ GPIO\_PinState);}
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ write4bits(uint8\_t);}
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ write8bits(uint8\_t);}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ pulseEnable(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \ \ \ \ uint8\_t\ \_displayfunction;}
-\DoxyCodeLine{00102\ \ \ \ \ uint8\_t\ \_displaycontrol;}
-\DoxyCodeLine{00103\ \ \ \ \ uint8\_t\ \_displaymode;}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \ \ \ \ uint8\_t\ \_initialized;}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \ \ \ \ uint8\_t\ \_numlines;}
-\DoxyCodeLine{00108\ \ \ \ \ uint8\_t\ \_row\_offsets[4];}
-\DoxyCodeLine{00109\ \ \ \ \ uint8\_t\ \_fourbit\_mode\ =\ 1;}
-\DoxyCodeLine{00110\ \ \ \ \ uint8\_t\ dotsize\ =\ LCD\_5x8DOTS;}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ setRowOffsets(\textcolor{keywordtype}{int}\ row0,\ \textcolor{keywordtype}{int}\ row1,\ \textcolor{keywordtype}{int}\ row2,\ \textcolor{keywordtype}{int}\ row3);}
-\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ command(uint8\_t\ value)\ ;}
-\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{size\_t}\ write(uint8\_t\ value);}
-\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ send(uint8\_t\ value,\ GPIO\_PinState\ mode);}
-\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ pulseEnable(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ write4bits(uint8\_t\ value);}
-\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ write8bits(uint8\_t\ value);}
-\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ Enables\ the\ RCC\ clock\ for\ the\ GPIO\ ports\ used\ by\ the\ LCD.}}
-\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ enableClock(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Enables\ the\ RCC\ clock\ for\ the\ specified\ GPIO\ port.}}
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ enableClock2(GPIO\_TypeDef*\ \_port);}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ \};}
+\DoxyCodeLine{00101\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_l_c_d}{LCD}}\ \{}
+\DoxyCodeLine{00102\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{class_l_c_d}{LCD}}(GPIO\_TypeDef*\ portdata,\ GPIO\_TypeDef*\ portctrlRW,\ GPIO\_TypeDef*\ portctrlEN,\ GPIO\_TypeDef*\ portctrlRS);}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a5a69772cb66723fcf2700618226f0117}{initDataPins}}(uint16\_t\ val4,\ uint16\_t\ val5,\ uint16\_t\ val6,\ uint16\_t\ val7);}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_ae0354650ab5a8fd20ded471dbb91a595}{initCtrlPins}}(uint16\_t\ ctrlRW,\ uint16\_t\ ctrlEN,\ uint16\_t\ ctrlRS)\ ;}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_l_c_d_af23af138b827bde2a84cbb6ccb3d182f}{printLCD}}(\textcolor{keyword}{const}\ std::string\&\ message\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_c_d_a0a21a3e48bbf88766ae85c5f90702d97}{printFormatted}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format,\ ...);}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_ad7734dbe71f0ac78e556dfbf4967fe15}{putch}}(uint8\_t\ ch)\ ;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_aebf99637cb9616d60b242dc8aaf0850a}{setCursor}}(uint8\_t\ x=0,\ uint8\_t\ y=0);}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a4cb65a0bd0e7a18b3ba18ea70e200346}{Begin}}\ (\ \textcolor{keywordtype}{int}\ cols,\ \textcolor{keywordtype}{int}\ rows\ );}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a91cba8f93c692abcddf8bc3de58d2d3a}{createChar}}(uint8\_t\ location,\ uint8\_t\ charmap[]);}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_aeff37c905e5f6623ef7743103347c92d}{noAutoscroll}}(\textcolor{keywordtype}{void})\ ;}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_ac6a18bccf905cf2c71b0ebe86cf2787c}{autoscroll}}(\textcolor{keywordtype}{void})\ ;}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a88017e4902a4d07084e57a62e5d6401c}{leftToRight}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_ada7852125c06d02b515c0a4bbb931c38}{rightToLeft}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_aa905559d25aba4b87a4e8e614729b8ec}{scrollDisplayLeft}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a4aaf9a8b204548fbf45d2436254e7a0c}{scrollDisplayRight}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a02a1754e67064533d865fa512df28c83}{noDisplay}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_aaeb946d140898a5611a5688866600545}{display}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_ac14ca68f3abe49812d299e9a10e42c64}{noCursor}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_a0cee3ae98d3ea09a57ce225508cc645a}{cursor}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_aca6cd9e401283d5fa4917d53260b3ba9}{clear}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_c_d_add2d8956c36ba45c36f234e442103f3c}{home}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00124\ }
 \DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LCD\_H}}
+\DoxyCodeLine{00126\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00127\ \ \ \ \ GPIO\_TypeDef\ *vPortData;}
+\DoxyCodeLine{00128\ \ \ \ \ GPIO\_TypeDef\ *vPortCtrlRW;}
+\DoxyCodeLine{00129\ \ \ \ \ GPIO\_TypeDef\ *vPortCtrlEN;}
+\DoxyCodeLine{00130\ \ \ \ \ GPIO\_TypeDef\ *vPortCtrlRS;}
+\DoxyCodeLine{00131\ \ \ \ \ uint16\_t\ d4,\ d5,\ d6,\ d7;}
+\DoxyCodeLine{00132\ \ \ \ \ uint16\_t\ \_data\_pins[8];}
+\DoxyCodeLine{00133\ \ \ \ \ uint16\_t\ vCtrlRW,\ vCtrlEN,\ vCtrlRS;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ uint8\_t\ \_displayfunction;}
+\DoxyCodeLine{00136\ \ \ \ \ uint8\_t\ \_displaycontrol;}
+\DoxyCodeLine{00137\ \ \ \ \ uint8\_t\ \_displaymode;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ uint8\_t\ \_initialized;}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ uint8\_t\ \_numlines;}
+\DoxyCodeLine{00142\ \ \ \ \ uint8\_t\ \_row\_offsets[4];}
+\DoxyCodeLine{00143\ \ \ \ \ uint8\_t\ \_fourbit\_mode\ =\ 1;}
+\DoxyCodeLine{00144\ \ \ \ \ uint8\_t\ dotsize\ =\ LCD\_5x8DOTS;}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ setRowOffsets(\textcolor{keywordtype}{int}\ row0,\ \textcolor{keywordtype}{int}\ row1,\ \textcolor{keywordtype}{int}\ row2,\ \textcolor{keywordtype}{int}\ row3);}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ command(uint8\_t\ value)\ ;}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{size\_t}\ write(uint8\_t\ value);}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ send(uint8\_t\ value,\ GPIO\_PinState\ mode);}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ pulseEnable(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ write4bits(uint8\_t\ value);}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ write8bits(uint8\_t\ value);}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ Enables\ the\ RCC\ clock\ for\ the\ GPIO\ ports\ used\ by\ the\ LCD.}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ enableClock(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Enables\ the\ RCC\ clock\ for\ the\ specified\ GPIO\ port.}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{void}\ enableClock2(GPIO\_TypeDef*\ \_port);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \};}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LCD\_H}}
 
 \end{DoxyCode}
