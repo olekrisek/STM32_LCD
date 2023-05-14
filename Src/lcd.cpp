@@ -310,8 +310,7 @@
             __HAL_RCC_GPIOE_CLK_ENABLE();
         else if (_port == GPIOF)
             __HAL_RCC_GPIOF_CLK_ENABLE();
-
-        // if you have a port that is not listed add it below the other else ifs
+        // Add more conditions for other GPIO ports if necessary
     }
 
 
@@ -324,6 +323,12 @@
     */
 
     void LCD::Begin ( int cols, int rows ) {
+    	uint8_t fourbitmode=1;
+    	if (fourbitmode)
+    	    _displayfunction = LCD_4BITMODE | LCD_1LINE | LCD_5x8DOTS;
+    	  else
+    	    _displayfunction = LCD_8BITMODE | LCD_1LINE | LCD_5x8DOTS;
+
     	if (rows > 1) {
     	    _displayfunction |= LCD_2LINE;
     	  }
